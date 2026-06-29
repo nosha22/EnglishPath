@@ -116,7 +116,7 @@ export default function PersonalDictionary() {
         
         {isReviewMode ? (
           /* Spaced Repetition Review Game interface */
-          <div className="max-w-md mx-auto py-lg space-y-lg">
+          <div className="max-w-[28rem] mx-auto py-lg space-y-lg">
             <div className="flex justify-between items-center text-sm">
               <button 
                 onClick={() => setIsReviewMode(false)}
@@ -317,7 +317,7 @@ export default function PersonalDictionary() {
               <div className="p-xl text-center bg-surface-container-lowest border-2 border-dashed border-outline-variant/60 rounded-2xl space-y-xs">
                 <span className="material-symbols-outlined text-secondary text-4xl">menu_book</span>
                 <p className="text-sm font-bold text-on-surface-variant">Nenhum termo encontrado</p>
-                <p className="text-xs text-secondary max-w-xs mx-auto">
+                <p className="text-xs text-secondary max-w-[20rem] mx-auto">
                   Tenta refinar os termos da pesquisa, ou entra no currículo e clica duas vezes em qualquer palavra difícil para adicioná-la aqui!
                 </p>
               </div>

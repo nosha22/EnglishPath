@@ -217,7 +217,7 @@ export default function PlacementTest() {
       </header>
 
       <main className="flex-grow flex items-center justify-center py-xl px-container-margin">
-        <div className="max-w-xl w-full bg-surface-container-lowest rounded-2xl p-lg shadow-xl border border-outline-variant/40 space-y-lg">
+        <div className="max-w-[36rem] w-full bg-surface-container-lowest rounded-2xl p-lg shadow-xl border border-outline-variant/40 space-y-lg">
           
           {/* STEP 1: Survey Goals */}
           {step === 1 && (

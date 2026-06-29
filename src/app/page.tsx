@@ -117,7 +117,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-xl items-center">
             
             {/* Left Content */}
-            <div className="space-y-lg text-center md:text-left max-w-xl mx-auto md:mx-0">
+            <div className="space-y-lg text-center md:text-left max-w-[36rem] mx-auto md:mx-0">
               <div className="inline-flex items-center gap-xs px-sm py-1 bg-surface-container-lowest rounded-full shadow-sm border border-outline-variant">
                 <span className="material-symbols-outlined text-tertiary text-sm">stars</span>
                 <span className="text-label-sm font-label-sm text-tertiary uppercase tracking-wider">Alinhamento Cambridge</span>
@@ -259,7 +259,7 @@ export default function Home() {
                     <span className="material-symbols-outlined text-white">work</span>
                   </div>
                   <h4 className="font-headline-md font-bold mt-md text-white text-2xl">Independente</h4>
-                  <p className="text-body-lg text-white/80 mt-xs max-w-md">O nível profissional. Consegue trabalhar em ambientes internacionais e participar em reuniões técnicas sem dificuldades.</p>
+                  <p className="text-body-lg text-white/80 mt-xs max-w-[28rem]">O nível profissional. Consegue trabalhar em ambientes internacionais e participar em reuniões técnicas sem dificuldades.</p>
                 </div>
                 <div className="relative z-10 flex items-center justify-between gap-md">
                   <span className="bg-white text-primary px-lg py-2 rounded-xl font-bold hover:scale-105 transition-transform text-xs shadow">Iniciar Nível</span>
@@ -435,7 +435,7 @@ export default function Home() {
             onClick={() => setShowAuthModal(false)}
           ></div>
           
-          <div className="relative bg-surface rounded-2xl max-w-md w-full p-lg shadow-2xl border border-outline-variant/50 z-10 animate-in fade-in zoom-in-95 duration-200">
+          <div className="relative bg-surface rounded-2xl max-w-[28rem] w-full p-lg shadow-2xl border border-outline-variant/50 z-10 animate-in fade-in zoom-in-95 duration-200">
             <button 
               onClick={() => setShowAuthModal(false)}
               className="absolute top-md right-md text-secondary hover:text-on-surface transition-all flex items-center justify-center w-8 h-8 rounded-full hover:bg-surface-container-low"

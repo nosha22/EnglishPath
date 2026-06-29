@@ -327,7 +327,7 @@ export default function ExercisePlayer() {
               Acabas de somar <strong className="text-primary">+100 XP</strong> ao teu diário de bordo.
             </p>
 
-            <div className="p-sm bg-surface-container-low rounded-xl border border-outline-variant/30 text-xs font-semibold flex justify-between max-w-sm mx-auto">
+            <div className="p-sm bg-surface-container-low rounded-xl border border-outline-variant/30 text-xs font-semibold flex justify-between max-w-[24rem] mx-auto">
               <span>Bónus de Hábito</span>
               <span className="text-primary font-bold">+100 XP Adicionado</span>
             </div>
@@ -335,7 +335,7 @@ export default function ExercisePlayer() {
             <div className="pt-sm">
               <button
                 onClick={() => router.push(`/curriculum/${level}`)}
-                className="w-full max-w-sm py-3 bg-primary text-white rounded-xl font-bold text-xs shadow hover:opacity-95 active:scale-95 transition-all"
+                className="w-full max-w-[24rem] py-3 bg-primary text-white rounded-xl font-bold text-xs shadow hover:opacity-95 active:scale-95 transition-all"
               >
                 Voltar ao Currículo
               </button>
@@ -660,7 +660,7 @@ export default function ExercisePlayer() {
       {popupWord && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
           <div className="absolute inset-0 bg-on-surface/40 backdrop-blur-sm" onClick={() => setPopupWord(null)}></div>
-          <div className="relative bg-surface rounded-2xl max-w-sm w-full p-md shadow-2xl border border-outline-variant/60 z-10 animate-in fade-in duration-200">
+          <div className="relative bg-surface rounded-2xl max-w-[24rem] w-full p-md shadow-2xl border border-outline-variant/60 z-10 animate-in fade-in duration-200">
             <h4 className="text-lg font-bold text-primary flex items-center gap-xs">
               <span className="material-symbols-outlined">menu_book</span>
               Definição Inline

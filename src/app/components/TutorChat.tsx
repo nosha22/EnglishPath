@@ -194,11 +194,11 @@ export default function TutorChat() {
                 </div>
                 <div className="space-y-2">
                   <h4 className="font-bold text-on-surface text-lg">Olá, Explorador! 👋</h4>
-                  <p className="text-sm text-secondary leading-relaxed max-w-xs">
+                  <p className="text-sm text-secondary leading-relaxed max-w-[20rem]">
                     Sou o teu Professor Virtual. Escreve qualquer frase em inglês e eu vou corrigi-la, explicar os erros e dar-te dicas — tudo em português!
                   </p>
                 </div>
-                <div className="grid grid-cols-1 gap-2 w-full max-w-xs">
+                <div className="grid grid-cols-1 gap-2 w-full max-w-[20rem]">
                   {[
                     'I goed to the store yesterday',
                     'She don\'t like coffee',
