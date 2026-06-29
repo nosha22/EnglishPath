@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#b5c4ff",
+                    "tertiary": "#003e29",
+                    "surface-tint": "#3257c0",
+                    "inverse-on-surface": "#eaf1ff",
+                    "inverse-surface": "#213145",
+                    "secondary": "#5c5f61",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary-fixed-variant": "#0e3da7",
+                    "surface-variant": "#d3e4fe",
+                    "outline-variant": "#c4c5d5",
+                    "primary-container": "#1a44ad",
+                    "surface-container-low": "#eff4ff",
+                    "tertiary-container": "#00583b",
+                    "on-tertiary-container": "#42d59a",
+                    "surface-container": "#e5eeff",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "primary": "#002d89",
+                    "surface-container-high": "#dce9ff",
+                    "primary-fixed-dim": "#b5c4ff",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#00164e",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#e0e3e5",
+                    "outline": "#747684",
+                    "on-primary-container": "#a9bbff",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "primary-fixed": "#dce1ff",
+                    "on-secondary-container": "#626567",
+                    "on-secondary-fixed": "#191c1e",
+                    "on-background": "#0b1c30",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#002113",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#444653",
+                    "on-secondary-fixed-variant": "#444749",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#e0e3e5",
+                    "surface-dim": "#cbdbf5",
+                    "surface-bright": "#f8f9ff",
+                    "secondary-fixed-dim": "#c4c7c9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "container-margin": "20px",
+                    "sm": "12px",
+                    "lg": "24px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "base": "4px",
+                    "xs": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display": ["Inter"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .active-module-card {
+            border-left: 4px solid #002d89;
+            background: #e5eeff;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c4c5d5;
+            border-radius: 10px;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Top Navigation Anchor (Shared Component Execution) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-xs">
+<span class="text-headline-md font-headline-md font-bold text-primary">EnglishPath</span>
+<div class="ml-lg px-xs py-base bg-primary-container rounded text-on-primary-container font-label-md text-label-sm">
+                LEVEL B1
+            </div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="hidden md:flex gap-lg">
+<a class="text-primary font-bold transition-transform duration-200 active:scale-95 hover:opacity-80" href="#">Home</a>
+<a class="text-secondary transition-transform duration-200 active:scale-95 hover:opacity-80" href="#">Courses</a>
+<a class="text-secondary transition-transform duration-200 active:scale-95 hover:opacity-80" href="#">Progress</a>
+</div>
+<div class="flex items-center gap-sm bg-surface-container-high px-sm py-xs rounded-full">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-label-md font-label-md text-primary">XP: 1250</span>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container shadow-sm">
+<img class="w-full h-full object-cover" data-alt="A high-quality studio portrait of a professional-looking individual with a warm, encouraging smile, representing a language learner. The lighting is soft and natural, emphasizing clarity and approachability. The background is a minimalist, light blue office setting that perfectly matches the EnglishPath corporate modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpD7CQ9ozqsKyhmLa1xv7gvQPeF_lsALa6PAUlJsMUEeALT4NdU3fTTug7WFUGyaJngVRVW0dbR8vSc7YRKMtRnVXkiHaaRRTr4z2ENWwEdGNnd21cWgvMQbVvVKCVBybjE0yhGu4QG51VYCyrh_ix9xBOUBCyZRGXScLxgt_WGBsbeTz7ShmrTZAMcexmohE0irhZbHp3FZvS0BtCrFxmeEBVfcTln66eznpYfM-7QiW0gqwrvCslMmHMulF_TgB7zn53WKORBgU"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="pt-24 pb-32 px-container-margin max-w-[1440px] mx-auto grid grid-cols-12 gap-lg h-full">
+<!-- Left Sidebar: Modules List -->
+<aside class="col-span-12 lg:col-span-4 xl:col-span-3 flex flex-col gap-md">
+<div class="flex flex-col gap-xs mb-md">
+<h2 class="text-headline-md font-headline-md text-on-surface">Curriculum</h2>
+<p class="text-body-md text-secondary">Intermediate Level • B1</p>
+</div>
+<div class="flex flex-col gap-sm overflow-y-auto custom-scrollbar pr-2">
+<!-- Listening Module (Active) -->
+<button class="flex flex-col gap-xs p-md rounded-xl active-module-card shadow-sm transition-all duration-300 text-left group">
+<div class="flex justify-between items-center w-full">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">hearing</span>
+<span class="font-bold text-primary">Listening</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">8/12 Lessons</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden mt-xs">
+<div class="bg-primary h-full w-[66%] rounded-full"></div>
+</div>
+</button>
+<!-- Speaking Module -->
+<button class="flex flex-col gap-xs p-md rounded-xl bg-surface-container-lowest shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-md transition-all duration-300 text-left group border-l-4 border-transparent hover:border-surface-variant">
+<div class="flex justify-between items-center w-full">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">record_voice_over</span>
+<span class="font-semibold text-on-surface">Speaking</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">4/10 Lessons</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden mt-xs">
+<div class="bg-secondary h-full w-[40%] rounded-full"></div>
+</div>
+</button>
+<!-- Reading Module -->
+<button class="flex flex-col gap-xs p-md rounded-xl bg-surface-container-lowest shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-md transition-all duration-300 text-left group border-l-4 border-transparent hover:border-surface-variant">
+<div class="flex justify-between items-center w-full">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">menu_book</span>
+<span class="font-semibold text-on-surface">Reading</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">10/10 Lessons</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden mt-xs">
+<div class="bg-tertiary-container h-full w-full rounded-full"></div>
+</div>
+</button>
+<!-- Writing Module -->
+<button class="flex flex-col gap-xs p-md rounded-xl bg-surface-container-lowest shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-md transition-all duration-300 text-left group border-l-4 border-transparent hover:border-surface-variant">
+<div class="flex justify-between items-center w-full">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">edit_note</span>
+<span class="font-semibold text-on-surface">Writing</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">2/8 Lessons</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden mt-xs">
+<div class="bg-secondary h-full w-[25%] rounded-full"></div>
+</div>
+</button>
+<!-- Grammar & Vocab -->
+<button class="flex flex-col gap-xs p-md rounded-xl bg-surface-container-lowest shadow-[0px_4px_20px_rgba(0,0,0,0.05)] hover:shadow-md transition-all duration-300 text-left group border-l-4 border-transparent hover:border-surface-variant">
+<div class="flex justify-between items-center w-full">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-secondary group-hover:text-primary">extension</span>
+<span class="font-semibold text-on-surface">Grammar &amp; Vocab</span>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">15/20 Lessons</span>
+</div>
+<div class="w-full bg-outline-variant h-2 rounded-full overflow-hidden mt-xs">
+<div class="bg-primary h-full w-[75%] rounded-full"></div>
+</div>
+</button>
+</div>
+<!-- Bento CTA section -->
+<div class="mt-lg p-lg rounded-2xl bg-primary-container text-on-primary-container flex flex-col gap-md relative overflow-hidden group">
+
+<div class="relative z-10">
+<h3 class="text-headline-md font-headline-md leading-tight">Pronto para subir de nível?</h3>
+<p class="text-label-md mt-xs opacity-90">Unlock the B2 Advanced assessment by completing 2 more modules.</p>
+<button class="mt-lg w-full bg-surface text-primary py-sm rounded-xl font-bold transition-all hover:scale-[1.02] active:scale-95 shadow-lg">Take Level Test</button>
+</div>
+</div>
+</aside>
+<!-- Right Side: Lesson Previews -->
+<section class="col-span-12 lg:col-span-8 xl:col-span-9 flex flex-col gap-lg">
+<div class="flex items-end justify-between border-b border-outline-variant pb-md">
+<div class="flex flex-col gap-xs">
+<h1 class="text-display font-display text-primary">Listening Mastery</h1>
+<p class="text-body-lg text-secondary">Understanding professional environments and social nuances.</p>
+</div>
+<div class="flex gap-xs">
+<span class="px-md py-xs rounded-full bg-surface-container-high text-primary font-label-md">Current Module</span>
+<span class="px-md py-xs rounded-full border border-outline text-secondary font-label-md">B1 Intermediate</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-lg">
+<!-- Lesson 1 (Completed) -->
+<div class="bg-surface-container-lowest p-md rounded-2xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border-2 border-tertiary-container relative flex flex-col gap-md">
+<div class="absolute top-md right-md">
+<span class="material-symbols-outlined text-on-tertiary-container bg-tertiary rounded-full p-xs text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="h-32 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A clean, minimalist 3D illustration of a pair of professional headphones resting on a sleek white desk next to a digital tablet displaying an audio waveform. The colors are dominated by primary blue and soft whites, with a high-key lighting style. The mood is focused and academic, emphasizing the listening module's theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg9LRlJsbPPXR-upUAn7IiExtyd1JX2qZ7v0jBAZo8H2h2mUE0ObQTaYq4PcTPm1xKknG-EIGy5SI3Jcd-A-TX828Gn4XZPlcE8fbfag2_i57Vg1cg5UsvECt88IBlcmJUR2NzTXXZ7CZp0_eFF4nDup5PRhCCFz16W8_kEOT8f1Wcurbt4WyIhPUKWFiRVREyDfcU4_tnKEuBWeO6Pu_etvMh8Z-7_UXwz_FD27g49OEclwZHTacUXyqwtgyQflHYz4_wRrBbxV8"/>
+</div>
+<div class="flex flex-col gap-xs">
+<h4 class="font-bold text-on-surface">Professional Introductions</h4>
+<p class="text-label-sm text-secondary line-clamp-2">Learn to listen for key details in corporate greetings and business meetings.</p>
+</div>
+<div class="mt-auto flex items-center justify-between">
+<span class="text-label-sm font-label-md text-on-tertiary-container bg-tertiary-fixed-dim/30 px-xs py-base rounded">COMPLETED</span>
+<button class="text-primary font-bold text-label-md flex items-center gap-xs">Review <span class="material-symbols-outlined text-[16px]">replay</span></button>
+</div>
+</div>
+<!-- Lesson 2 (Next Lesson / Highlighted) -->
+<div class="bg-surface-container-lowest p-md rounded-2xl shadow-[0px_8px_24px_rgba(26,68,173,0.12)] border-2 border-primary relative flex flex-col gap-md transform scale-[1.02]">
+<div class="absolute top-md right-md">
+<span class="bg-primary text-white text-[10px] px-xs py-base rounded font-bold uppercase tracking-wider">UP NEXT</span>
+</div>
+<div class="h-32 rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="A dynamic, brightly lit image of a busy urban café where people are talking. The focal point is a microphone icon floating in the air, symbolizing ambient noise and complex listening environments. The color palette features vibrant corporate blue and soft neutrals, with a modern, high-contrast digital art style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs3L7UaRJZRjl1aHlQ2vLi0MoTtfIgaY1Uu3Phg8mAttSdA1_isq5m7rTEpsHTS1C_1rnL3zosO0kIQYJ2F0j7WWojP8xkF6KTOSZedIYRKmsW3fSAyykFw3Bx3p2Yek2Em9NSnv0q8M51i59dv1Kl4Z6SGO5BKXdf6elhnUudc3Y2qEwrwZSlnJS0tkhifw8oOhbOSAtgeDV4RBnnErE-eVLUcJz0OiVEFPipDI4x_sAU2gK4nGSjwwO4qkgf0WIZrBBlkNcjtdg"/>
+<div class="absolute inset-0 bg-primary/20 flex items-center justify-center backdrop-blur-[2px]">
+<span class="material-symbols-outlined text-white text-[48px]" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<h4 class="font-bold text-on-surface">Social Nuances in Public</h4>
+<p class="text-label-sm text-secondary line-clamp-2">Decoding sarcasm, indirect requests, and social cues in busy environments.</p>
+</div>
+<div class="mt-auto">
+<button class="w-full bg-primary text-white py-sm rounded-xl font-bold flex items-center justify-center gap-xs transition-all hover:opacity-90">Start Lesson <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+</div>
+</div>
+<!-- Lesson 3 (Locked) -->
+<div class="bg-surface p-md rounded-2xl border-2 border-dashed border-outline-variant opacity-60 flex flex-col gap-md">
+<div class="h-32 rounded-xl bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-[40px]">lock</span>
+</div>
+<div class="flex flex-col gap-xs">
+<h4 class="font-bold text-secondary">Negotiation Tactics</h4>
+<p class="text-label-sm text-secondary line-clamp-2">Advanced listening techniques for identifying leverage in conversation.</p>
+</div>
+<div class="mt-auto flex items-center gap-xs">
+<span class="text-label-sm font-label-md text-secondary">Requires: Lesson 2</span>
+</div>
+</div>
+<!-- More modules (asymmetric row) -->
+<div class="md:col-span-2 xl:col-span-3 bg-surface-container-low p-lg rounded-2xl flex flex-col md:flex-row gap-lg items-center">
+<div class="w-full md:w-1/3 h-48 rounded-xl overflow-hidden bg-white shadow-sm p-base">
+<div class="w-full h-full bg-cover bg-center rounded-lg" data-alt="A futuristic infographic or data visualization showing a language learning path. The graphic features clean lines, glowing nodes representing milestones, and a soft blue gradient background. It looks like a high-tech dashboard from a premium educational software, symbolizing progress and complex curriculum mapping." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfFG85P-ix4bTc4nEl4yLKjTVlIDd0xNVS8sK8gMyhLF75Jducisocu7tt8hheuUBRNAElxkn-CwHkVrzknA4LsPyIlTIodgiTDChxVNxd1EldEm3XY8VMS0v2MUnyTzsZdQJYtgFILBuB5cX-LmZE6PwkhqRU7-r34MR9Tmxj8C8WDdKMGQfKrgobMYDapmWa_XA15IMPsGavi_iWfC2xNZn6Dk1K9bDlke2fzUDuKS8Ik5A4xHNvMPhj2xn2I8tQK2ETJX6ZLv0')"></div>
+</div>
+<div class="flex flex-col gap-sm flex-1">
+<h4 class="text-headline-md font-headline-md text-primary">Mastery Challenge: Audio Blog</h4>
+<p class="text-body-md text-on-surface-variant">Test your complete B1 listening skills with a 10-minute long-form audio piece. Successful completion awards a special 'Golden Ear' badge.</p>
+<div class="flex gap-md mt-xs">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">timer</span>
+<span class="text-label-md font-label-md text-secondary">15 min</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary">emoji_events</span>
+<span class="text-label-md font-label-md text-secondary">250 XP</span>
+</div>
+</div>
+<button class="mt-md px-lg py-sm border-2 border-primary text-primary rounded-xl font-bold self-start hover:bg-primary hover:text-white transition-all">Unlock Challenge</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Shared Component Execution - Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface/80 backdrop-blur-md rounded-t-xl shadow-[0px_-4px_20px_rgba(0,0,0,0.05)]">
+<button class="flex flex-col items-center justify-center text-secondary transition-all duration-300">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold relative after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-label-sm font-label-sm">Courses</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary transition-all duration-300">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-label-sm font-label-sm">Progress</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary transition-all duration-300">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</button>
+</nav>
+<script>
+        // Simple interaction for module switching simulation
+        document.querySelectorAll('aside button').forEach(button => {
+            button.addEventListener('click', function() {
+                // In a real app, this would update the state
+                document.querySelectorAll('aside button').forEach(b => {
+                    b.classList.remove('active-module-card', 'border-primary');
+                    b.classList.add('bg-surface-container-lowest');
+                    const icon = b.querySelector('.material-symbols-outlined');
+                    if(icon) icon.classList.remove('text-primary');
+                });
+                
+                this.classList.add('active-module-card');
+                this.classList.remove('bg-surface-container-lowest');
+                const activeIcon = this.querySelector('.material-symbols-outlined');
+                if(activeIcon) activeIcon.classList.add('text-primary');
+            });
+        });
+
+        // Micro-interaction for lesson cards
+        document.querySelectorAll('.lesson-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('scale-[1.01]');
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('scale-[1.01]');
+            });
+        });
+    </script>
+</body></html>

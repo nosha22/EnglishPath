@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-PT"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EnglishPath | O Teu Caminho para a Fluência</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-primary": "#b5c4ff",
+                    "tertiary": "#003e29",
+                    "surface-tint": "#3257c0",
+                    "inverse-on-surface": "#eaf1ff",
+                    "inverse-surface": "#213145",
+                    "secondary": "#5c5f61",
+                    "surface-container-highest": "#d3e4fe",
+                    "on-primary-fixed-variant": "#0e3da7",
+                    "surface-variant": "#d3e4fe",
+                    "outline-variant": "#c4c5d5",
+                    "primary-container": "#1a44ad",
+                    "surface-container-low": "#eff4ff",
+                    "tertiary-container": "#00583b",
+                    "on-tertiary-container": "#42d59a",
+                    "surface-container": "#e5eeff",
+                    "on-surface": "#0b1c30",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "surface": "#f8f9ff",
+                    "primary": "#002d89",
+                    "surface-container-high": "#dce9ff",
+                    "primary-fixed-dim": "#b5c4ff",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-primary-fixed": "#00164e",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#e0e3e5",
+                    "outline": "#747684",
+                    "on-primary-container": "#a9bbff",
+                    "background": "#f8f9ff",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "primary-fixed": "#dce1ff",
+                    "on-secondary-container": "#626567",
+                    "on-secondary-fixed": "#191c1e",
+                    "on-background": "#0b1c30",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#002113",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#444653",
+                    "on-secondary-fixed-variant": "#444749",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#e0e3e5",
+                    "surface-dim": "#cbdbf5",
+                    "surface-bright": "#f8f9ff",
+                    "secondary-fixed-dim": "#c4c7c9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "32px",
+                    "container-margin": "20px",
+                    "sm": "12px",
+                    "lg": "24px",
+                    "gutter": "16px",
+                    "md": "16px",
+                    "base": "4px",
+                    "xs": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display": ["Inter"],
+                    "label-md": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 45, 137, 0.2);
+        }
+    </style>
+</head>
+<body class="font-body-md antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface dark:bg-on-surface shadow-sm">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-3xl">school</span>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">EnglishPath</span>
+</div>
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-label-md font-label-md text-primary font-bold hover:opacity-80 transition-transform duration-200 active:scale-95" href="#">Home</a>
+<a class="text-label-md font-label-md text-secondary hover:opacity-80 transition-transform duration-200 active:scale-95" href="#">Courses</a>
+<a class="text-label-md font-label-md text-secondary hover:opacity-80 transition-transform duration-200 active:scale-95" href="#">Progress</a>
+<div class="h-6 w-px bg-outline-variant mx-xs"></div>
+<div class="flex items-center gap-xs">
+<span class="text-label-md font-label-md text-secondary">XP: 1250</span>
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a friendly educator, shot in a minimalist studio with soft, directional lighting. The background is a clean, neutral gray, and the overall aesthetic is corporate yet approachable, using a high-key lighting setup that matches a premium educational platform. The person is smiling warmly at the camera." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnlxHZuL0c4WrMeifYkcqOnd6GGlGbFpJhCF5h6fAiaqvZKvAYJtMcbA1uc6zDrn_q0k6vPqAIEI_1imQr-Te3xOMtfWXjyDDMsFp0UkqhgdCmOjt5l1cqBxQWz6uL0Z8WDHuU-8v7scnvKl69SX5fsJrdIwWtapAZtuj4gAdsk5mmI_Z0pgqgRJCwBxtXHi6eyXOk1gAS0404gY2zcdN16lAPve_Yq9Z8iZO9Rsv6K_W142Vg9x6dZXdnbEaZRLpAuhoQjrD3ta8"/>
+</div>
+</div>
+</nav>
+<button class="md:hidden material-symbols-outlined text-primary">menu</button>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden bg-surface-container-low">
+
+<div class="container mx-auto px-container-margin relative z-10 grid md:grid-cols-2 gap-xl items-center py-xl">
+<div class="space-y-lg max-w-xl">
+<div class="inline-flex items-center gap-xs px-sm py-base bg-white rounded-full shadow-sm border border-outline-variant">
+<span class="material-symbols-outlined text-tertiary text-sm">stars</span>
+<span class="text-label-sm font-label-sm text-tertiary uppercase tracking-wider">Metodologia Cambridge</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface leading-tight">
+                        O teu caminho para a <span class="text-primary text-glow">fluência em inglês</span> começa aqui.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Aprende de forma estruturada com o método EnglishPath. Aulas interativas, feedback em tempo real e certificação alinhada com os padrões europeus (CEFR).
+                    </p>
+<div class="flex flex-wrap gap-md pt-md">
+<button class="px-lg h-14 bg-primary text-on-primary rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 flex items-center gap-xs">
+                            Começar Agora
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-lg h-14 border-2 border-primary text-primary bg-transparent rounded-xl font-bold hover:bg-primary/5 transition-all duration-300 flex items-center gap-xs">
+                            Fazer Teste de Nível
+                        </button>
+</div>
+</div>
+<div class="relative hidden md:block">
+<div class="absolute -top-12 -right-12 w-64 h-64 bg-surface-container-highest rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse"></div>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 bg-primary-container rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+<div class="relative glass-card rounded-3xl p-base shadow-2xl overflow-hidden border-2 border-white">
+<img class="w-full aspect-[4/5] object-cover rounded-2xl" data-alt="A modern, minimalist office space with large windows and plenty of natural light. A diverse group of young adults is engaged in a focused English learning session around a sleek wooden table. They are using high-end laptops and digital tablets, with a large screen in the background showing a vibrant linguistic world map. The lighting is bright and crisp, emphasizing a corporate yet motivational atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl5YwPN_gOp8PdRIaFg2c67WteMsWBh_HzX3gjqTF9_r-hCottqLqUjOmQKH_WJr56zHGHzmoxQk7Sy1W_TNOrxX9h5phuYuNIIBU7T7Oo4Mo5MlEUEgQlxQXdo6IPdTQKTDdtNEZHRDb2jYY0mzNiEBtWcC4mscdBLG7Tw8tamFm9x2aNVBGBsDrRxAlXaCKIugWVz9xQde0NiSLJRUj8B9l8vJmN-JMpOA43mXglhiu0rp5RfRhF8QlotXQwZZQHXpB79KGj1K0"/>
+<div class="absolute bottom-lg right-lg left-lg bg-white/90 backdrop-blur-md p-md rounded-xl shadow-lg border border-outline-variant">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 bg-tertiary-fixed text-on-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined" data-weight="fill">trending_up</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-secondary">Aumenta o teu nível</p>
+<p class="text-body-md font-bold text-on-surface">94% de sucesso nos exames</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Methodology Section -->
+<section class="py-xl bg-white">
+<div class="container mx-auto px-container-margin">
+<div class="text-center max-w-2xl mx-auto mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-md">Uma metodologia validada</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Seguimos o Quadro Europeu Comum de Referência para Línguas (CEFR) para garantir que o teu progresso seja reconhecido internacionalmente.
+                    </p>
+</div>
+<div class="grid md:grid-cols-3 gap-lg">
+<!-- Feature 1 -->
+<div class="p-lg rounded-2xl bg-surface hover:shadow-md transition-shadow border border-outline-variant group">
+<div class="w-14 h-14 bg-surface-container-highest text-primary rounded-xl flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Aprendizagem Adaptativa</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">O nosso algoritmo ajusta os exercícios à tua velocidade de aprendizagem, focando-se no que realmente precisas de praticar.</p>
+</div>
+<!-- Feature 2 -->
+<div class="p-lg rounded-2xl bg-surface hover:shadow-md transition-shadow border border-outline-variant group">
+<div class="w-14 h-14 bg-surface-container-highest text-primary rounded-xl flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">record_voice_over</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Foco na Conversação</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Simulações de situações reais do quotidiano e do mundo corporativo para que te sintas confiante ao falar.</p>
+</div>
+<!-- Feature 3 -->
+<div class="p-lg rounded-2xl bg-surface hover:shadow-md transition-shadow border border-outline-variant group">
+<div class="w-14 h-14 bg-surface-container-highest text-primary rounded-xl flex items-center justify-center mb-md group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">assignment_turned_in</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-sm">Certificação Oficial</h3>
+<p class="font-body-md text-body-md text-on-secondary-container">Preparamos-te para os exames de Cambridge, IELTS e TOEFL com materiais atualizados e provas modelo.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Proficiency Levels (Bento Grid) -->
+<section class="py-xl bg-surface-container-lowest">
+<div class="container mx-auto px-container-margin">
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center mb-xl">Explora os teus horizontes</h2>
+<div class="grid grid-cols-1 md:grid-cols-6 gap-md">
+<!-- A1 & A2 (Basic) -->
+<div class="md:col-span-2 bg-surface rounded-2xl p-lg border border-outline-variant flex flex-col justify-between h-80 hover:border-primary transition-colors cursor-pointer">
+<div>
+<div class="flex justify-between items-start">
+<span class="bg-surface-container-highest text-primary px-sm py-base rounded-lg font-bold text-headline-md">A1 / A2</span>
+<span class="material-symbols-outlined text-secondary">flight_takeoff</span>
+</div>
+<h4 class="font-headline-md text-headline-md mt-md">Elementar</h4>
+<p class="text-body-md text-on-secondary-container mt-xs">Comunica em situações simples do dia a dia e apresenta-te com confiança.</p>
+</div>
+<div class="h-2 bg-outline-variant rounded-full overflow-hidden">
+<div class="h-full w-1/3 bg-primary rounded-full"></div>
+</div>
+</div>
+<!-- B1 & B2 (Independent) -->
+<div class="md:col-span-4 bg-primary text-on-primary rounded-2xl p-lg flex flex-col justify-between h-80 relative overflow-hidden group">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start">
+<span class="bg-primary-container text-white px-sm py-base rounded-lg font-bold text-headline-md">B1 / B2</span>
+<span class="material-symbols-outlined text-on-primary-container">work</span>
+</div>
+<h4 class="font-headline-md text-headline-lg-mobile mt-md">Independente</h4>
+<p class="text-body-lg text-white/80 mt-xs max-w-md">O nível profissional. Consegue trabalhar em ambientes internacionais e participar em reuniões técnicas sem dificuldades.</p>
+</div>
+<div class="relative z-10 flex items-center gap-md">
+<button class="bg-white text-primary px-lg py-sm rounded-xl font-bold hover:scale-105 transition-transform">Ver Currículo</button>
+<span class="text-label-sm font-label-sm">Nível mais procurado por recrutadores</span>
+</div>
+</div>
+<!-- C1 & C2 (Proficient) -->
+<div class="md:col-span-3 bg-tertiary-container text-white rounded-2xl p-lg h-80 flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-start">
+<span class="bg-tertiary text-on-tertiary-container px-sm py-base rounded-lg font-bold text-headline-md">C1 / C2</span>
+<span class="material-symbols-outlined text-on-tertiary-container">military_tech</span>
+</div>
+<h4 class="font-headline-md text-headline-md mt-md">Proficiente</h4>
+<p class="text-body-md text-white/80 mt-xs">Fluência total. Domina o inglês académico e nuances complexas da língua como um nativo.</p>
+</div>
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-tertiary-container bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Avatar of a student who reached C2 level, professional and happy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzKIiQYFnX2zzCH9oA6E_DUZNDNNalIYbG_QbaHvEAELZ7IqrsqsI5dYx6bq_GNgIi0FtH4tAWHHf3Mzv3Oc_YEGeeFzTyO9C4yt9pvsF2RUYQwZEr6QcowhsKlRULA3bv0HlcHVvgaxA47XFIE8Qp4XcoqPzmCJTa_icWH_KXuFX-LyoquQvM6Q68AO9MYSjxtbwyUIOvs3ycQTQ3AXyOqIne1OP6cbZVmGj-WJIy0iRF4BWmTeUVSY1QuSAfveoMGivkxlSVnnI"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-tertiary-container bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Avatar of another advanced student." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF9HRfwuD_AbnLWM0VloE26nxkzgDqiangKehh42eIn0-HHws0CPAJNc_cfU_LazYeF4iD8TJAk0pRJ_Nkt0wJlIGKxN2YLCC4n8kGXKon6qjFlzIOqzjP3nD6vWMHvcVTwQZdxUs_qNsGacXSsWiw-_Hpk0bO8d4XRkVS6IbQ5lZJZsBYMJyoo2iDZQfjUoYJHidRtgjO3Pdg0BCuEvCToSXUrpc99TZHT2-h0zHJo6E6Z3D1zGSn-fvMRSP9pb1CgWgDTBDYxNc"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-tertiary-container bg-tertiary flex items-center justify-center text-xs font-bold">+500</div>
+</div>
+</div>
+<!-- Statistics Card -->
+<div class="md:col-span-3 bg-surface-container-high rounded-2xl p-lg h-80 flex items-center justify-center border border-outline-variant">
+<div class="text-center">
+<div class="text-display font-display text-primary mb-xs">4.9/5</div>
+<div class="flex justify-center gap-xs mb-md">
+<span class="material-symbols-outlined text-primary" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-weight="fill">star</span>
+<span class="material-symbols-outlined text-primary" data-weight="fill">star</span>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">Classificação média de 10k+ alunos</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xl">
+<div class="container mx-auto px-container-margin">
+<div class="bg-on-surface rounded-3xl p-xl flex flex-col md:flex-row items-center gap-xl overflow-hidden relative">
+<div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path d="M0 100 C 20 0 50 0 100 100" fill="transparent" stroke="white" stroke-width="0.1"></path>
+<path d="M0 80 C 30 20 60 20 100 80" fill="transparent" stroke="white" stroke-width="0.1"></path>
+</svg>
+</div>
+<div class="md:w-1/2 space-y-md relative z-10">
+<h2 class="text-white font-headline-lg text-headline-lg">Pronto para transformar a tua carreira?</h2>
+<p class="text-white/70 text-body-lg">
+                            Junta-te a milhares de profissionais que já desbloquearam novas oportunidades com o inglês fluente.
+                        </p>
+<div class="flex gap-md pt-sm">
+<button class="bg-primary-fixed text-on-primary-fixed px-lg py-sm rounded-xl font-bold hover:scale-105 transition-transform active:scale-95">Criar Conta Grátis</button>
+<button class="text-white flex items-center gap-xs hover:underline">Ver Planos e Preços <span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="md:w-1/2 relative z-10 grid grid-cols-2 gap-md">
+<div class="bg-white/5 backdrop-blur-sm p-md rounded-2xl border border-white/10">
+<span class="text-primary-fixed text-display font-display block">150+</span>
+<span class="text-white/60 text-label-sm uppercase tracking-widest">Aulas Gravadas</span>
+</div>
+<div class="bg-white/5 backdrop-blur-sm p-md rounded-2xl border border-white/10">
+<span class="text-tertiary-fixed text-display font-display block">24/7</span>
+<span class="text-white/60 text-label-sm uppercase tracking-widest">Suporte AI</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container py-xl border-t border-outline-variant">
+<div class="container mx-auto px-container-margin grid grid-cols-2 md:grid-cols-4 gap-xl">
+<div class="col-span-2 md:col-span-1 space-y-md">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-primary text-2xl">school</span>
+<span class="text-headline-md font-bold text-primary">EnglishPath</span>
+</div>
+<p class="text-on-surface-variant text-body-md">A plataforma líder para profissionais que procuram fluência real e certificação internacional.</p>
+<div class="flex gap-md">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+<div class="space-y-md">
+<h5 class="font-bold text-on-surface">Produto</h5>
+<ul class="space-y-xs text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Cursos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Metodologia</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Preços</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Certificados</a></li>
+</ul>
+</div>
+<div class="space-y-md">
+<h5 class="font-bold text-on-surface">Recursos</h5>
+<ul class="space-y-xs text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Teste de Nível</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Guia de Estudo</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div class="space-y-md">
+<h5 class="font-bold text-on-surface">Suporte</h5>
+<ul class="space-y-xs text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacidade</a></li>
+<li><a class="hover:text-primary transition-colors" href="#"></a></li></ul></div></div></footer></body></html>

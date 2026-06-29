@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EnglishPath | O Teu Caminho para a Fluência</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-surface": "#0b1c30",
+                "surface-container-low": "#eff4ff",
+                "surface-dim": "#cbdbf5",
+                "secondary-fixed-dim": "#c4c7c9",
+                "surface-variant": "#d3e4fe",
+                "inverse-primary": "#b5c4ff",
+                "primary-fixed": "#dce1ff",
+                "primary": "#002d89",
+                "error": "#ba1a1a",
+                "inverse-surface": "#213145",
+                "surface": "#f8f9ff",
+                "on-tertiary-container": "#42d59a",
+                "on-primary": "#ffffff",
+                "secondary-container": "#e0e3e5",
+                "on-primary-fixed": "#00164e",
+                "on-tertiary-fixed": "#002113",
+                "on-tertiary-fixed-variant": "#005236",
+                "error-container": "#ffdad6",
+                "tertiary-container": "#00583b",
+                "background": "#f8f9ff",
+                "secondary": "#5c5f61",
+                "tertiary": "#003e29",
+                "surface-container-lowest": "#ffffff",
+                "on-error": "#ffffff",
+                "on-primary-container": "#a9bbff",
+                "surface-container-highest": "#d3e4fe",
+                "tertiary-fixed": "#6ffbbe",
+                "on-secondary": "#ffffff",
+                "surface-container-high": "#dce9ff",
+                "on-surface-variant": "#444653",
+                "surface-bright": "#f8f9ff",
+                "secondary-fixed": "#e0e3e5",
+                "surface-container": "#e5eeff",
+                "primary-container": "#1a44ad",
+                "primary-fixed-dim": "#b5c4ff",
+                "on-primary-fixed-variant": "#0e3da7",
+                "inverse-on-surface": "#eaf1ff",
+                "on-tertiary": "#ffffff",
+                "tertiary-fixed-dim": "#4edea3",
+                "on-background": "#0b1c30",
+                "outline-variant": "#c4c5d5",
+                "on-secondary-fixed": "#191c1e",
+                "on-secondary-container": "#626567",
+                "on-secondary-fixed-variant": "#444749",
+                "outline": "#747684",
+                "surface-tint": "#3257c0",
+                "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "md": "16px",
+                "gutter": "16px",
+                "container-margin": "20px",
+                "base": "4px",
+                "lg": "24px",
+                "sm": "12px",
+                "xs": "8px",
+                "xl": "32px"
+            },
+            "fontFamily": {
+                "headline-lg-mobile": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Inter"],
+                "label-sm": ["Inter"],
+                "display": ["Inter"],
+                "headline-lg": ["Inter"],
+                "label-md": ["JetBrains Mono"],
+                "body-md": ["Inter"]
+            },
+            "fontSize": {
+                "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }],
+                "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+                "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #f8f9ff;
+            color: #0b1c30;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 50%, rgba(26, 68, 173, 0.05) 0%, rgba(248, 249, 255, 0) 70%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface dark:bg-on-surface shadow-sm transition-transform duration-200 active:scale-95">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-surface-variant">
+<img class="w-full h-full object-cover" data-alt="A friendly and professional digital portrait of a diverse female English tutor with a warm smile. She is wearing modern casual business attire against a clean, minimalist studio background with soft, high-key lighting. The style is bright and corporate-modern, utilizing a palette of soft blues and crisp whites to convey trust and accessibility for a premium language learning platform." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEx4ippBePHnmcHqVjACAdzTR3XNrX9TsE3kP0ndfSCeKbXHEt4IYqrVtxUwg6fr77W7kXEXVxCJe1KHJygXpQnroLw_uWx6w2odfq-EZu-S28tZ5ooP4Tp_UimO3dTxbO_4q5UnReepgxSsBEF6-MIt3Cw-4HcCVRK4L0J58lJtDHAeAOBKAU2120WrZ39njHSuPJSeUo6YntURr2sYKRNSxIqL_A6YplvG5zd-wEuCA-O1MruUNNtIY9grrEnIB9Rm9tQolGIVs"/>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">EnglishPath</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md text-primary font-bold">XP: 1250</span>
+</div>
+</header>
+<main class="pt-20 pb-32 min-h-screen">
+<!-- Hero Section -->
+<section class="relative px-container-margin py-8 md:py-16 overflow-hidden hero-gradient">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+<div class="w-full md:w-1/2 space-y-6 text-center md:text-left z-10">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-primary leading-tight">
+                        O teu caminho para a fluência em inglês começa aqui.
+                    </h1>
+<p class="text-body-lg font-body-lg text-secondary max-w-lg mx-auto md:mx-0">
+                        Aprende de forma intuitiva com um método estruturado que se adapta ao teu ritmo e objetivos reais.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+<button class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold text-body-md shadow-[0px_8px_24px_rgba(26,68,173,0.12)] hover:opacity-90 transition-all active:scale-95">
+                            Começar Agora
+                        </button>
+<button class="bg-surface-container-lowest text-primary border-2 border-primary px-8 py-4 rounded-xl font-bold text-body-md hover:bg-surface-container-low transition-all active:scale-95">
+                            Fazer Teste de Nível
+                        </button>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative flex justify-center items-center">
+<!-- Decorative shapes -->
+<div class="absolute -z-10 w-64 h-64 bg-surface-variant rounded-full blur-3xl opacity-50"></div>
+<div class="relative w-full max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+<img class="w-full h-full object-cover" data-alt="A high-quality 3D minimalist illustration of a friendly language tutor sitting at a modern desk with a laptop and a stack of books. The scene is rendered in a soft, clean aesthetic with a primary color palette of deep blue and vibrant teal. The lighting is warm and inviting, emphasizing a positive and encouraging educational atmosphere. The background is a clean, off-white minimalist office space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYUCnjJi2RdHLNCJMUWej5VKk47yZBsPwdFf_l0Tn3Gvk0A0K_-52lzZ96tlBUGtc4NStcO38KAkYsaBSBQk_zAYvPL-vzYq7oIDE77w2Dlc3IRdPZy5amweuMlXd4mci-Qsutnhko2hxGoiBYfEojYfTEZXgho1xGyuaDqG3bs8u903Ock4SoVsFXOoKjgbFtPCP7nDYDhZNnP5LtzkSW-lLFt6iSgulg0ECowcj5Hh7ojJ84NEACJE19-0yWIPiycwriV9niPb4"/>
+<!-- Floating Achievement Chip -->
+<div class="absolute bottom-6 right-6 glass-card p-4 rounded-xl flex items-center gap-3 animate-bounce">
+<div class="w-10 h-10 bg-tertiary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary">celebration</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface">Primeiro Passo!</p>
+<p class="text-xs text-secondary">Inicia hoje</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Cambridge Standards Bento Grid -->
+<section class="px-container-margin py-16 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Níveis de Proficiência</h2>
+<p class="text-body-md font-body-md text-secondary max-w-2xl mx-auto">
+                        A nossa metodologia baseia-se no Quadro Europeu Comum de Referência para as Línguas (CEFR), garantindo um padrão global de qualidade.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Beginner Card -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center transition-transform hover:-translate-y-2">
+<div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+<span class="text-headline-md font-bold text-primary">A1</span>
+</div>
+<h3 class="font-bold text-body-lg text-on-surface mb-2">Iniciante</h3>
+<p class="text-secondary text-label-md">Foca-se em expressões básicas e interações simples do dia-a-dia.</p>
+</div>
+<!-- Intermediate Card -->
+<div class="bg-primary text-on-primary p-8 rounded-2xl shadow-lg flex flex-col items-center text-center transform scale-105 z-10 transition-transform hover:scale-110">
+<div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+<span class="text-headline-md font-bold text-white">B1</span>
+</div>
+<h3 class="font-bold text-body-lg text-white mb-2">Independente</h3>
+<p class="text-primary-fixed text-label-md">Comunicação fluida em situações familiares e profissionais.</p>
+<div class="mt-6 px-4 py-2 bg-on-tertiary-container/20 rounded-full text-xs font-bold uppercase tracking-wider text-on-tertiary-container">
+                            Mais Popular
+                        </div>
+</div>
+<!-- Advanced Card -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/30 flex flex-col items-center text-center transition-transform hover:-translate-y-2">
+<div class="w-16 h-16 bg-tertiary/10 rounded-full flex items-center justify-center mb-6">
+<span class="text-headline-md font-bold text-tertiary">C1</span>
+</div>
+<h3 class="font-bold text-body-lg text-on-surface mb-2">Proficiente</h3>
+<p class="text-secondary text-label-md">Domínio avançado da língua para contextos complexos e académicos.</p>
+</div>
+</div>
+<div class="mt-12 flex justify-center">
+<div class="flex items-center gap-4 text-secondary font-label-md">
+<span class="w-8 h-px bg-outline-variant"></span>
+<span>Abrangendo todos os níveis A1 até C2</span>
+<span class="w-8 h-px bg-outline-variant"></span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Micro-Section: Progress Teaser -->
+<section class="px-container-margin py-16">
+<div class="max-w-4xl mx-auto glass-card p-8 rounded-3xl flex flex-col md:flex-row items-center gap-8">
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Acompanha a tua evolução</h3>
+<p class="text-body-md font-body-md text-secondary mb-6">Visualiza cada conquista com o nosso sistema de tracking inteligente.</p>
+<div class="space-y-4">
+<div class="space-y-2">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface">Vocabulário: Business</span>
+<span class="text-primary">75%</span>
+</div>
+<div class="h-3 w-full bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 75%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-label-sm font-label-sm">
+<span class="text-on-surface">Gramática: Tenses</span>
+<span class="text-primary">40%</span>
+</div>
+<div class="h-3 w-full bg-surface-dim rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full transition-all duration-1000" style="width: 40%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/3 flex justify-center">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90">
+<circle cx="64" cy="64" fill="none" r="58" stroke="#eff4ff" stroke-width="8"></circle>
+<circle class="transition-all duration-1000" cx="64" cy="64" fill="none" r="58" stroke="#002d89" stroke-dasharray="364.4" stroke-dashoffset="100" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-headline-md font-bold text-primary">Level 4</span>
+<span class="text-[10px] uppercase font-bold text-secondary">Fluency</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface/80 dark:bg-on-surface/80 backdrop-blur-md rounded-t-xl shadow-[0px_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-container font-bold relative after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 transition-all duration-300 ease-in-out hover:text-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim transition-all duration-300 ease-in-out hover:text-primary-container" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-label-sm font-label-sm">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim transition-all duration-300 ease-in-out hover:text-primary-container" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-label-sm font-label-sm">Progress</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim transition-all duration-300 ease-in-out hover:text-primary-container" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple scroll effect for TopAppBar shadow
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.add('shadow-sm');
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Small interaction for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.classList.add('scale-95');
+                setTimeout(() => this.classList.remove('scale-95'), 100);
+            });
+        });
+    </script>
+</body></html>

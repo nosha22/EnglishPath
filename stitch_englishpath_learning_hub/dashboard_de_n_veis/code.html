@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EnglishPath - Level Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#0b1c30",
+                        "surface-container-low": "#eff4ff",
+                        "surface-dim": "#cbdbf5",
+                        "secondary-fixed-dim": "#c4c7c9",
+                        "surface-variant": "#d3e4fe",
+                        "inverse-primary": "#b5c4ff",
+                        "primary-fixed": "#dce1ff",
+                        "primary": "#002d89",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#213145",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#42d59a",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#e0e3e5",
+                        "on-primary-fixed": "#00164e",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "error-container": "#ffdad6",
+                        "tertiary-container": "#00583b",
+                        "background": "#f8f9ff",
+                        "secondary": "#5c5f61",
+                        "tertiary": "#003e29",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#a9bbff",
+                        "surface-container-highest": "#d3e4fe",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#dce9ff",
+                        "on-surface-variant": "#444653",
+                        "surface-bright": "#f8f9ff",
+                        "secondary-fixed": "#e0e3e5",
+                        "surface-container": "#e5eeff",
+                        "primary-container": "#1a44ad",
+                        "primary-fixed-dim": "#b5c4ff",
+                        "on-primary-fixed-variant": "#0e3da7",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-background": "#0b1c30",
+                        "outline-variant": "#c4c5d5",
+                        "on-secondary-fixed": "#191c1e",
+                        "on-secondary-container": "#626567",
+                        "on-secondary-fixed-variant": "#444749",
+                        "outline": "#747684",
+                        "surface-tint": "#3257c0",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "gutter": "16px",
+                        "container-margin": "20px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "sm": "12px",
+                        "xs": "8px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["JetBrains Mono"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .level-card-active {
+            border: 2px solid #002d89;
+            box-shadow: 0px 8px 24px rgba(26, 68, 173, 0.12);
+        }
+        .level-card-locked {
+            filter: grayscale(1);
+            opacity: 0.7;
+        }
+        .glass-header {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        body {
+            background-color: #f8f9ff;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface dark:bg-on-surface shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A clean, professional portrait of a student for an educational platform profile. The lighting is soft and high-key, set against a minimalist light blue background. The aesthetic is modern corporate, emphasizing friendliness and focus, with a sharp focus on the subject's face to create a sense of personal identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHRlXl39NPNAXOCUM_PFR9_va8NTSockvD4b7V7vs6PsxbLsFlggQGQO_-zNuYJyQCa-0mgLUok_IMkXF-Tb50kZSt6VszUxozYwzuW60vjMyYLhTmbI2h502MXxB_T7FvZ2fptFI1ebapeMOOohQo1Z3XUmUYoiUwRx1FGKO6f6IfO8uFqDF1wnEd-7nWumMHwIavMqrOUF6PN22zgZr2MQFY9TlqNw-3Q976r1OpRXaWgcPyC97ej7a4BEJnYW-HhzMrvVxvywo"/>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">EnglishPath</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined text-[18px]">workspace_premium</span>
+<span class="text-label-md font-label-md">XP: 1250</span>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="pt-24 pb-28 px-container-margin max-w-7xl mx-auto">
+<!-- Welcome Hero Section -->
+<section class="mb-xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary mb-xs">Your Journey</h1>
+<p class="text-secondary text-body-md max-w-md">Continue where you left off. Every lesson brings you closer to global communication mastery.</p>
+</div>
+<div class="hidden md:flex gap-md items-center text-label-md font-label-md text-secondary">
+<div class="flex flex-col items-center">
+<span class="text-primary font-bold text-headline-md">12</span>
+<span>Day Streak</span>
+</div>
+<div class="w-[1px] h-10 bg-outline-variant"></div>
+<div class="flex flex-col items-center">
+<span class="text-primary font-bold text-headline-md">B1</span>
+<span>Current Level</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid for Learning Levels -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- A1 (Active Level) -->
+<div class="level-card-active bg-surface-container-lowest p-md rounded-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold text-headline-md">A1</div>
+<div>
+<h3 class="font-headline-md text-on-surface">Iniciante</h3>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Common European Framework</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-md font-label-md">
+<span class="text-secondary">Progress</span>
+<span class="text-primary font-bold">100%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-on-tertiary-container w-[100%] rounded-full shadow-sm"></div>
+</div>
+<div class="flex items-center gap-xs mt-xs text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span class="text-label-sm font-label-sm">Level Mastered</span>
+</div>
+</div>
+</div>
+<!-- A2 -->
+<div class="level-card-active bg-surface-container-lowest p-md rounded-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer group">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 flex items-center justify-center rounded-lg bg-primary-container text-on-primary-container font-bold text-headline-md">A2</div>
+<div>
+<h3 class="font-headline-md text-on-surface">Elementar</h3>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Survival English</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-md font-label-md">
+<span class="text-secondary">Progress</span>
+<span class="text-primary font-bold">85%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full shadow-sm"></div>
+</div>
+<div class="mt-xs text-secondary text-label-sm font-label-sm">
+                        3 modules left to unlock B1
+                    </div>
+</div>
+</div>
+<!-- B1 (Current Focus) -->
+<div class="level-card-active border-primary-container bg-surface-container-lowest p-md rounded-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer ring-4 ring-primary/5 relative">
+<div class="absolute -top-3 -right-3 bg-tertiary text-on-tertiary text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-widest shadow-sm">Current</div>
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold text-headline-md shadow-md">B1</div>
+<div>
+<h3 class="font-headline-md text-on-surface">Intermédio</h3>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Independent User</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-primary animate-pulse">play_circle</span>
+</div>
+<div class="space-y-sm">
+<div class="flex justify-between text-label-md font-label-md">
+<span class="text-secondary">Progress</span>
+<span class="text-primary font-bold">42%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[42%] rounded-full shadow-sm"></div>
+</div>
+<button class="w-full mt-md bg-primary text-white py-2.5 rounded-lg font-bold text-label-md hover:bg-primary-container transition-colors active:scale-95 duration-150">
+                        Continue Learning
+                    </button>
+</div>
+</div>
+<!-- B2 (Locked) -->
+<div class="bg-surface-container-low p-md rounded-xl opacity-70 border border-outline-variant/30 flex flex-col grayscale-[0.5]">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-dim text-secondary font-bold text-headline-md">B2</div>
+<div>
+<h3 class="font-headline-md text-secondary">Intermédio Superior</h3>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Fluency Path</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">lock</span>
+</div>
+<div class="mt-auto space-y-sm">
+<div class="flex justify-between text-label-md font-label-md text-secondary">
+<span>Progress</span>
+<span>0%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-0"></div>
+</div>
+</div>
+</div>
+<!-- C1 (Locked) -->
+<div class="bg-surface-container-low p-md rounded-xl opacity-70 border border-outline-variant/30 flex flex-col grayscale-[0.5]">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-dim text-secondary font-bold text-headline-md">C1</div>
+<div>
+<h3 class="font-headline-md text-secondary">Avançado</h3>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Expertise</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">lock</span>
+</div>
+<div class="mt-auto space-y-sm">
+<div class="flex justify-between text-label-md font-label-md text-secondary">
+<span>Progress</span>
+<span>0%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-0"></div>
+</div>
+</div>
+</div>
+<!-- C2 (Locked) -->
+<div class="bg-surface-container-low p-md rounded-xl opacity-70 border border-outline-variant/30 flex flex-col grayscale-[0.5]">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-12 h-12 flex items-center justify-center rounded-lg bg-surface-dim text-secondary font-bold text-headline-md">C2</div>
+<div>
+<h3 class="font-headline-md text-secondary">Proficiente</h3>
+<span class="text-label-sm font-label-sm text-secondary uppercase tracking-wider">Native-like Mastery</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary">lock</span>
+</div>
+<div class="mt-auto space-y-sm">
+<div class="flex justify-between text-label-md font-label-md text-secondary">
+<span>Progress</span>
+<span>0%</span>
+</div>
+<div class="w-full h-3 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim w-0"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Achievement Banner Section -->
+<section class="mt-xl">
+<div class="bg-on-surface text-on-primary p-lg rounded-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-lg shadow-xl">
+<!-- Background decoration -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-3xl -mr-32 -mt-32"></div>
+<div class="relative z-10 text-center md:text-left">
+<h2 class="text-headline-md font-headline-md mb-xs text-surface-container-low">Next Milestone</h2>
+<p class="text-secondary-fixed-dim max-w-sm">Complete the "Business Negotiation" unit in B1 to earn the 'Executive Orator' badge.</p>
+</div>
+<div class="relative z-10 flex flex-col items-center md:items-end gap-sm">
+<div class="flex -space-x-3 mb-xs">
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-surface-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-surface-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">auto_stories</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-surface-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">public</span>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-on-surface bg-on-surface-variant flex items-center justify-center text-label-sm font-label-sm">+4</div>
+</div>
+<button class="px-6 py-2 bg-surface text-primary rounded-full font-bold text-label-md hover:bg-surface-bright transition-all active:scale-95">View Badges</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface/80 dark:bg-on-surface/80 backdrop-blur-md rounded-t-xl shadow-[0px_-4px_20px_rgba(0,0,0,0.05)] md:hidden">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim transition-all duration-300 ease-in-out hover:text-primary-container" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-container font-bold relative after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1 transition-all duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-label-sm font-label-sm">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim transition-all duration-300 ease-in-out hover:text-primary-container" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-label-sm font-label-sm">Progress</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim transition-all duration-300 ease-in-out hover:text-primary-container" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Desktop Sidebar/Nav (Hidden on Mobile) -->
+<div class="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col gap-6 bg-surface/50 backdrop-blur-md p-4 rounded-full shadow-lg border border-outline-variant/30">
+<a class="p-3 rounded-full hover:bg-primary-container hover:text-on-primary-container text-secondary transition-all active:scale-90" href="#" title="Home">
+<span class="material-symbols-outlined">home</span>
+</a>
+<a class="p-3 rounded-full bg-primary text-on-primary shadow-md active:scale-90 transition-all" href="#" title="Courses">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+</a>
+<a class="p-3 rounded-full hover:bg-primary-container hover:text-on-primary-container text-secondary transition-all active:scale-90" href="#" title="Progress">
+<span class="material-symbols-outlined">trending_up</span>
+</a>
+<a class="p-3 rounded-full hover:bg-primary-container hover:text-on-primary-container text-secondary transition-all active:scale-90" href="#" title="Profile">
+<span class="material-symbols-outlined">person</span>
+</a>
+</div>
+<script>
+        // Micro-interactions: Level card lift and pulse effects
+        document.querySelectorAll('.level-card-active').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.boxShadow = '0px 12px 32px rgba(0, 45, 137, 0.15)';
+            });
+            card.addEventListener('mouseleave', () => {
+                if (!card.classList.contains('ring-4')) {
+                    card.style.boxShadow = '0px 4px 20px rgba(0,0,0,0.05)';
+                } else {
+                    card.style.boxShadow = '0px 8px 24px rgba(26, 68, 173, 0.12)';
+                }
+            });
+        });
+
+        // Navigation Highlight Logic (Simulated)
+        const currentPath = "Courses"; // This matches the active tab mapping requirement
+        console.log(`Setting active tab to: ${currentPath}`);
+    </script>
+</body></html>

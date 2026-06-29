@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EnglishPath - Grammar Practice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#0b1c30",
+                    "surface-container-low": "#eff4ff",
+                    "surface-dim": "#cbdbf5",
+                    "secondary-fixed-dim": "#c4c7c9",
+                    "surface-variant": "#d3e4fe",
+                    "inverse-primary": "#b5c4ff",
+                    "primary-fixed": "#dce1ff",
+                    "primary": "#002d89",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#213145",
+                    "surface": "#f8f9ff",
+                    "on-tertiary-container": "#42d59a",
+                    "on-primary": "#ffffff",
+                    "secondary-container": "#e0e3e5",
+                    "on-primary-fixed": "#00164e",
+                    "on-tertiary-fixed": "#002113",
+                    "on-tertiary-fixed-variant": "#005236",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#00583b",
+                    "background": "#f8f9ff",
+                    "secondary": "#5c5f61",
+                    "tertiary": "#003e29",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-primary-container": "#a9bbff",
+                    "surface-container-highest": "#d3e4fe",
+                    "tertiary-fixed": "#6ffbbe",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#dce9ff",
+                    "on-surface-variant": "#444653",
+                    "surface-bright": "#f8f9ff",
+                    "secondary-fixed": "#e0e3e5",
+                    "surface-container": "#e5eeff",
+                    "primary-container": "#1a44ad",
+                    "primary-fixed-dim": "#b5c4ff",
+                    "on-primary-fixed-variant": "#0e3da7",
+                    "inverse-on-surface": "#eaf1ff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed-dim": "#4edea3",
+                    "on-background": "#0b1c30",
+                    "outline-variant": "#c4c5d5",
+                    "on-secondary-fixed": "#191c1e",
+                    "on-secondary-container": "#626567",
+                    "on-secondary-fixed-variant": "#444749",
+                    "outline": "#747684",
+                    "surface-tint": "#3257c0",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "16px",
+                    "gutter": "16px",
+                    "container-margin": "20px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "sm": "12px",
+                    "xs": "8px",
+                    "xl": "32px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "display": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-md": ["JetBrains Mono"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #f8f9ff; }
+        .option-card { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+        .feedback-panel { transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1); }
+        .feedback-panel.active { transform: translateY(0); }
+        .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background selection:bg-primary-container selection:text-white">
+<!-- Top Navigation Anchor (Shared Component Mapping) -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container transition-all active:scale-95">
+<span class="material-symbols-outlined text-secondary" data-icon="close">close</span>
+</button>
+<div class="w-full max-w-[200px] md:max-w-md">
+<div class="flex justify-between items-center mb-1">
+<span class="font-label-md text-label-md text-primary">Exercício 3 de 10</span>
+</div>
+<div class="h-2 w-48 md:w-64 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[30%] rounded-full transition-all duration-700 ease-out"></div>
+</div>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-2 px-3 py-1 bg-surface-container rounded-full border border-outline-variant">
+<span class="material-symbols-outlined text-primary text-[18px]" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md text-label-md text-primary">XP: 1250</span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-32 px-container-margin max-w-2xl mx-auto min-h-screen flex flex-col justify-center">
+<!-- Question Header -->
+<section class="mb-xl text-center">
+<span class="inline-block px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm mb-md uppercase tracking-wider">Grammar: Present Perfect</span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-surface mb-sm leading-tight">
+                Escolhe a forma correta do verbo:
+            </h1>
+<div class="bg-surface-container-lowest p-lg rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-surface-variant">
+<p class="font-body-lg text-body-lg text-on-surface italic">
+                    "I <span class="text-primary font-bold border-b-2 border-primary/30 px-2">_____</span> (see) that movie already."
+                </p>
+</div>
+</section>
+<!-- Options Grid -->
+<section class="grid gap-md">
+<!-- Option A -->
+<button class="option-card group relative flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-container hover:bg-surface-container-low transition-all text-left" onclick="handleSelection(this, false)">
+<div class="flex items-center justify-center w-10 h-10 rounded-lg border border-outline-variant text-secondary font-bold mr-md group-hover:border-primary group-hover:text-primary">A</div>
+<span class="font-body-md text-body-md text-on-surface">saw</span>
+</button>
+<!-- Option B (Correct) -->
+<button class="option-card group relative flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-container hover:bg-surface-container-low transition-all text-left" onclick="handleSelection(this, true)">
+<div class="flex items-center justify-center w-10 h-10 rounded-lg border border-outline-variant text-secondary font-bold mr-md group-hover:border-primary group-hover:text-primary">B</div>
+<span class="font-body-md text-body-md text-on-surface">have seen</span>
+</button>
+<!-- Option C -->
+<button class="option-card group relative flex items-center p-md bg-surface-container-lowest border border-outline-variant rounded-xl hover:border-primary-container hover:bg-surface-container-low transition-all text-left" onclick="handleSelection(this, false)">
+<div class="flex items-center justify-center w-10 h-10 rounded-lg border border-outline-variant text-secondary font-bold mr-md group-hover:border-primary group-hover:text-primary">C</div>
+<span class="font-body-md text-body-md text-on-surface">seed</span>
+</button>
+</section>
+<!-- Tutor Suggestion/Context -->
+<div class="mt-xl p-md flex items-start gap-md bg-surface-container/50 rounded-xl border border-dashed border-outline-variant">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-surface-dim">
+<img class="w-full h-full object-cover" data-alt="Professional studio portrait of a friendly female English tutor, mid-30s, with a warm encouraging smile, wearing a modern navy blazer. The background is a blurred soft-focus library with warm light-mode lighting. High quality photography style for a premium education app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYuDxBnB_JizDYsfdwhR84fB6VMUT1pa5ilPXkmWhQfssSOtzCpTGxEa5Q1nT-DbKHKgW4CQrkLQxf7VnF25TXBSOPCe1G4ZUHMF6KYz7A_O20ZgId1DbWhFQGHYnl6mC2XeXLU6fftKnwudgnb1D61dVS0IvTc6pQqYlpyKJD39iIJcP2YIwyfq4A0b1Bb5DIRkTGYnueb3WS5NkIdSQ0qUnnI063nlb0IozO4suAoOCzP_mi11Hp18meHeZV9V_3P0s5p_OqbhI"/>
+</div>
+<p class="text-sm text-secondary italic">
+<strong>Dica do Professor:</strong> "Already" é uma palavra-chave comum para o Present Perfect, indicando que algo aconteceu num momento não específico do passado.
+            </p>
+</div>
+</main>
+<!-- Feedback Bottom Panel (Task Specific Section) -->
+<div class="fixed bottom-0 left-0 w-full z-50 glass-effect border-t border-surface-variant feedback-panel bg-surface/90" id="feedbackPanel">
+<div class="max-w-2xl mx-auto px-container-margin py-lg flex flex-col md:flex-row items-center justify-between gap-md">
+<div class="flex items-center gap-md text-left w-full" id="feedbackText">
+<div class="w-12 h-12 rounded-full flex items-center justify-center shrink-0 shadow-lg" id="feedbackIcon">
+<span class="material-symbols-outlined text-white" id="iconContent"></span>
+</div>
+<div>
+<h3 class="font-bold text-headline-md leading-none mb-1" id="feedbackHeadline"></h3>
+<p class="text-secondary text-sm" id="feedbackExplanation"></p>
+</div>
+</div>
+<button class="w-full md:w-auto px-xl py-md bg-primary text-white font-bold rounded-xl shadow-[0px_8px_24px_rgba(0,45,137,0.2)] hover:opacity-90 active:scale-95 transition-all text-center" onclick="resetExercise()">
+                Seguinte
+            </button>
+</div>
+</div>
+<script>
+        function handleSelection(element, isCorrect) {
+            // Remove selection from all cards
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('border-primary-container', 'bg-surface-container-low', 'ring-2', 'ring-primary-container');
+                card.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+                card.disabled = true;
+            });
+
+            // Highlight selected card
+            element.classList.remove('border-outline-variant', 'bg-surface-container-lowest');
+            element.classList.add('ring-2', 'transition-all');
+
+            const panel = document.getElementById('feedbackPanel');
+            const iconWrap = document.getElementById('feedbackIcon');
+            const iconContent = document.getElementById('iconContent');
+            const headline = document.getElementById('feedbackHeadline');
+            const explanation = document.getElementById('feedbackExplanation');
+
+            if (isCorrect) {
+                element.classList.add('border-on-tertiary-container', 'bg-tertiary-fixed/20', 'ring-on-tertiary-container');
+                panel.classList.remove('bg-error-container/80');
+                panel.classList.add('bg-tertiary-fixed/30');
+                iconWrap.classList.add('bg-on-tertiary-container');
+                iconWrap.classList.remove('bg-error');
+                iconContent.textContent = 'check';
+                headline.textContent = 'Correto!';
+                headline.classList.add('text-tertiary');
+                headline.classList.remove('text-error');
+                explanation.textContent = 'Excelente! "Have seen" é a forma correta do Present Perfect para a primeira pessoa.';
+            } else {
+                element.classList.add('border-error', 'bg-error-container/20', 'ring-error');
+                panel.classList.remove('bg-tertiary-fixed/30');
+                panel.classList.add('bg-error-container/80');
+                iconWrap.classList.add('bg-error');
+                iconWrap.classList.remove('bg-on-tertiary-container');
+                iconContent.textContent = 'close';
+                headline.textContent = 'Tenta de novo';
+                headline.classList.add('text-error');
+                headline.classList.remove('text-tertiary');
+                explanation.textContent = 'O Present Perfect requer o verbo auxiliar "have" + o particípio passado "seen".';
+            }
+
+            panel.classList.add('active');
+        }
+
+        function resetExercise() {
+            // Mocking next step
+            const panel = document.getElementById('feedbackPanel');
+            panel.classList.remove('active');
+            
+            setTimeout(() => {
+                document.querySelectorAll('.option-card').forEach(card => {
+                    card.classList.remove('border-primary-container', 'bg-surface-container-low', 'ring-2', 'ring-primary-container', 'border-on-tertiary-container', 'bg-tertiary-fixed/20', 'ring-on-tertiary-container', 'border-error', 'bg-error-container/20', 'ring-error');
+                    card.classList.add('border-outline-variant', 'bg-surface-container-lowest');
+                    card.disabled = false;
+                });
+            }, 300);
+        }
+    </script>
+</body></html>

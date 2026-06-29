@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EnglishPath | Evaluation Center</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-primary": "#b5c4ff",
+                "tertiary": "#003e29",
+                "surface-tint": "#3257c0",
+                "inverse-on-surface": "#eaf1ff",
+                "inverse-surface": "#213145",
+                "secondary": "#5c5f61",
+                "surface-container-highest": "#d3e4fe",
+                "on-primary-fixed-variant": "#0e3da7",
+                "surface-variant": "#d3e4fe",
+                "outline-variant": "#c4c5d5",
+                "primary-container": "#1a44ad",
+                "surface-container-low": "#eff4ff",
+                "tertiary-container": "#00583b",
+                "on-tertiary-container": "#42d59a",
+                "surface-container": "#e5eeff",
+                "on-surface": "#0b1c30",
+                "on-tertiary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "surface": "#f8f9ff",
+                "primary": "#002d89",
+                "surface-container-high": "#dce9ff",
+                "primary-fixed-dim": "#b5c4ff",
+                "on-primary": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-primary-fixed": "#00164e",
+                "tertiary-fixed": "#6ffbbe",
+                "on-tertiary-fixed-variant": "#005236",
+                "error-container": "#ffdad6",
+                "secondary-container": "#e0e3e5",
+                "outline": "#747684",
+                "on-primary-container": "#a9bbff",
+                "background": "#f8f9ff",
+                "tertiary-fixed-dim": "#4edea3",
+                "primary-fixed": "#dce1ff",
+                "on-secondary-container": "#626567",
+                "on-secondary-fixed": "#191c1e",
+                "on-background": "#0b1c30",
+                "error": "#ba1a1a",
+                "on-tertiary-fixed": "#002113",
+                "on-error": "#ffffff",
+                "on-surface-variant": "#444653",
+                "on-secondary-fixed-variant": "#444749",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed": "#e0e3e5",
+                "surface-dim": "#cbdbf5",
+                "surface-bright": "#f8f9ff",
+                "secondary-fixed-dim": "#c4c7c9"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xl": "32px",
+                "container-margin": "20px",
+                "sm": "12px",
+                "lg": "24px",
+                "gutter": "16px",
+                "md": "16px",
+                "base": "4px",
+                "xs": "8px"
+            },
+            "fontFamily": {
+                "body-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-md": ["Inter"],
+                "display": ["Inter"],
+                "label-md": ["JetBrains Mono"],
+                "headline-lg-mobile": ["Inter"],
+                "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d3e4fe;
+            border-radius: 10px;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .nav-item-active {
+            @apply bg-surface-container-high text-primary;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface custom-scrollbar">
+<!-- TopAppBar - Fixed Implementation from JSON -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface dark:bg-on-surface shadow-sm">
+<div class="flex items-center gap-xs">
+<div class="w-10 h-10 rounded-full bg-primary-fixed overflow-hidden ring-2 ring-primary/10">
+<img class="w-full h-full object-cover" data-alt="A professional studio portrait of a confident young person with a warm smile, wearing a casual navy sweater. The background is a soft, blurred library setting with warm, ambient lighting that matches the modern corporate educational theme. The image quality is high-resolution with natural skin tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2RVv6XFVV5y-JzZJHklsxMYl5sgKDGmdjPkRDXv2dsOHSOTTe2C_RmWxOn6kpaTUSrcll7fbc6y3KW6mK4Um9QPVwvXiEO0K2fXKqsF47FdVIuerDedGFy_nh1cL7K-oZBdKc0UVVFz915JMG9Sioxvezsl448ppPVYY9oVxg2SqTBzuUPNO93UmWSiS4sTN9xUmKx11uVikhlX8rkJeOriQumcNE_iyVBdT3lU7fzEm0BnsxIyLSRB2mied68-bvQHSiLfhLxvs"/>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">EnglishPath</span>
+</div>
+<div class="flex items-center gap-md">
+<span class="hidden md:flex text-label-md font-label-md text-primary font-bold px-4 py-1.5 bg-surface-container rounded-full ring-1 ring-primary/20">XP: 1250</span>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-secondary hover:text-primary transition-colors">settings</button>
+</div>
+</header>
+<!-- Side Navigation (Web) -->
+<aside class="hidden md:flex fixed left-0 top-16 bottom-0 w-64 bg-surface-container-lowest flex-col py-lg px-md z-40 border-r border-outline-variant/30">
+<nav class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-md p-md rounded-xl text-secondary hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">home</span>
+<span class="font-label-md">Home</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-xl text-secondary hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">school</span>
+<span class="font-label-md">Courses</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-xl text-primary font-bold bg-surface-container shadow-sm group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="font-label-md">Progress</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-xl text-secondary hover:bg-surface-container transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
+<span class="font-label-md">Profile</span>
+</a>
+</nav>
+<div class="p-md rounded-2xl bg-primary-container text-on-primary-container flex flex-col gap-sm">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm opacity-80 uppercase tracking-wider">Current Streak</span>
+<span class="material-symbols-outlined text-tertiary-fixed">local_fire_department</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold">14 Days</div>
+<div class="w-full h-1.5 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed w-[70%]"></div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="pt-24 pb-32 md:pb-lg md:pl-72 pr-container-margin px-container-margin min-h-screen">
+<!-- Dashboard Header -->
+<section class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div>
+<h1 class="text-headline-lg font-headline-lg text-on-surface">Evaluation Center</h1>
+<p class="text-body-md font-body-md text-secondary mt-1">Detailed performance analysis and certifications.</p>
+</div>
+<button class="flex items-center gap-xs px-lg py-md bg-primary text-on-primary rounded-xl font-bold shadow-md hover:opacity-90 transition-all active:scale-95 group">
+<span class="material-symbols-outlined group-hover:rotate-12 transition-transform">add_task</span>
+<span>New Assessment</span>
+</button>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Language Radar Chart -->
+<div class="md:col-span-8 glass-card rounded-2xl p-lg shadow-sm flex flex-col md:flex-row gap-lg items-center">
+<div class="w-full md:w-1/2">
+<h2 class="text-headline-md font-headline-md mb-xs">Language Radar</h2>
+<p class="text-body-md text-secondary mb-lg">Visual representation of your current skill distribution based on your latest evaluations.</p>
+<div class="grid grid-cols-2 gap-md">
+<div class="p-md rounded-xl bg-surface-container-low">
+<div class="text-label-sm text-secondary uppercase font-bold tracking-tight">Speaking</div>
+<div class="text-headline-md font-bold text-primary">Advanced</div>
+</div>
+<div class="p-md rounded-xl bg-surface-container-low">
+<div class="text-label-sm text-secondary uppercase font-bold tracking-tight">Writing</div>
+<div class="text-headline-md font-bold text-primary">Upper-Int</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2 h-64 md:h-80 relative flex items-center justify-center">
+<canvas id="radarChart"></canvas>
+</div>
+</div>
+<!-- Stats Highlights -->
+<div class="md:col-span-4 flex flex-col gap-lg">
+<div class="bg-white rounded-2xl p-lg shadow-sm flex items-center gap-md border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-primary/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150"></div>
+<div class="w-14 h-14 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'opsz' 48;">military_tech</span>
+</div>
+<div>
+<div class="text-headline-md font-bold">12</div>
+<div class="text-label-md text-secondary">Badges Earned</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-lg shadow-sm flex items-center gap-md border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-tertiary-fixed-dim/10 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150"></div>
+<div class="w-14 h-14 rounded-xl bg-tertiary-container/10 flex items-center justify-center text-tertiary-fixed-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'opsz' 48;">workspace_premium</span>
+</div>
+<div>
+<div class="text-headline-md font-bold">3</div>
+<div class="text-label-md text-secondary">Certificates</div>
+</div>
+</div>
+<div class="bg-white rounded-2xl p-lg shadow-sm flex items-center gap-md border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute right-0 top-0 w-24 h-24 bg-on-error-container/5 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-150"></div>
+<div class="w-14 h-14 rounded-xl bg-error-container/30 flex items-center justify-center text-error">
+<span class="material-symbols-outlined" style="font-variation-settings: 'opsz' 48;">calendar_today</span>
+</div>
+<div>
+<div class="text-headline-md font-bold">14</div>
+<div class="text-label-md text-secondary">Day Streak</div>
+</div>
+</div>
+</div>
+<!-- Testes de Nível -->
+<div class="md:col-span-7 bg-white rounded-2xl p-lg shadow-sm flex flex-col border border-outline-variant/30">
+<div class="flex items-center justify-between mb-lg">
+<h2 class="text-headline-md font-headline-md">Testes de Nível</h2>
+<a class="text-primary font-bold text-label-md hover:underline" href="#">View History</a>
+</div>
+<div class="flex flex-col gap-md">
+<!-- Test Entry -->
+<div class="flex items-center justify-between p-md rounded-xl hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold text-label-md">C1</div>
+<div>
+<div class="font-bold">Advanced Proficiency</div>
+<div class="text-label-sm text-secondary">October 24, 2023</div>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="text-right">
+<div class="font-bold text-tertiary-container">92/100</div>
+<div class="text-label-sm text-secondary">Passed</div>
+</div>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Test Entry -->
+<div class="flex items-center justify-between p-md rounded-xl hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold text-label-md">B2</div>
+<div>
+<div class="font-bold">Intermediate Plus</div>
+<div class="text-label-sm text-secondary">August 12, 2023</div>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="text-right">
+<div class="font-bold text-tertiary-container">88/100</div>
+<div class="text-label-sm text-secondary">Passed</div>
+</div>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</div>
+</div>
+<!-- Test Entry -->
+<div class="flex items-center justify-between p-md rounded-xl hover:bg-surface-container-low transition-colors border border-transparent hover:border-outline-variant/30 opacity-60">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary font-bold text-label-md">B1</div>
+<div>
+<div class="font-bold">Pre-Intermediate</div>
+<div class="text-label-sm text-secondary">June 05, 2023</div>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<div class="text-right">
+<div class="font-bold text-tertiary-container">82/100</div>
+<div class="text-label-sm text-secondary">Passed</div>
+</div>
+<span class="material-symbols-outlined text-secondary">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- EnglishPath Certified Section -->
+<div class="md:col-span-5 bg-primary-container rounded-2xl p-lg shadow-lg relative overflow-hidden flex flex-col justify-between text-on-primary-container min-h-[300px]">
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -left-12 -bottom-12 w-48 h-48 bg-tertiary-fixed/10 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-xs mb-sm">
+<span class="material-symbols-outlined text-tertiary-fixed">verified</span>
+<span class="text-label-sm font-label-md uppercase tracking-[0.2em] font-bold">EnglishPath Certified</span>
+</div>
+<h2 class="text-headline-lg font-headline-lg mb-md">Mastery Accomplished</h2>
+<p class="text-body-md opacity-90 leading-relaxed mb-lg">You have successfully achieved the C1 Advanced proficiency level. Your credentials are verified and ready for professional use.</p>
+</div>
+<div class="relative z-10 flex flex-col sm:flex-row gap-md">
+<button class="flex-1 bg-white text-primary px-lg py-md rounded-xl font-bold flex items-center justify-center gap-xs hover:bg-surface-container-low transition-all active:scale-95">
+<span class="material-symbols-outlined">download</span>
+<span>PDF Certificate</span>
+</button>
+<button class="flex-1 bg-primary/30 border border-white/20 text-white px-lg py-md rounded-xl font-bold flex items-center justify-center gap-xs hover:bg-white/10 transition-all active:scale-95">
+<span class="material-symbols-outlined">share</span>
+<span>Share on LinkedIn</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) - Visible only on small screens -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface/80 backdrop-blur-md shadow-[0px_-4px_20px_rgba(0,0,0,0.05)] rounded-t-xl">
+<button class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined">school</span>
+<span class="text-label-sm font-label-sm">Courses</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary font-bold relative after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+<span class="text-label-sm font-label-sm">Progress</span>
+</button>
+<button class="flex flex-col items-center justify-center text-secondary">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</button>
+</nav>
+<script>
+        // Radar Chart Implementation
+        const ctx = document.getElementById('radarChart').getContext('2d');
+        const radarChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: ['Reading', 'Writing', 'Listening', 'Speaking'],
+                datasets: [{
+                    label: 'Current Skills',
+                    data: [85, 72, 90, 88],
+                    fill: true,
+                    backgroundColor: 'rgba(26, 68, 173, 0.2)',
+                    borderColor: '#1a44ad',
+                    pointBackgroundColor: '#1a44ad',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#1a44ad',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true,
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        ticks: {
+                            display: false
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 14,
+                                weight: 'bold',
+                                family: 'Inter'
+                            },
+                            color: '#5c5f61'
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                maintainAspectRatio: false,
+                responsive: true
+            }
+        });
+
+        // Simple animation for the "New Assessment" button on hover
+        const fab = document.querySelector('main button');
+        if(fab) {
+            fab.addEventListener('mouseenter', () => {
+                fab.querySelector('span:first-child').style.transform = 'scale(1.2)';
+            });
+            fab.addEventListener('mouseleave', () => {
+                fab.querySelector('span:first-child').style.transform = 'scale(1)';
+            });
+        }
+    </script>
+</body></html>

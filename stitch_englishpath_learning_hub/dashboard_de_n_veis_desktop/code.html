@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EnglishPath | Journey Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#b5c4ff",
+                      "tertiary": "#003e29",
+                      "surface-tint": "#3257c0",
+                      "inverse-on-surface": "#eaf1ff",
+                      "inverse-surface": "#213145",
+                      "secondary": "#5c5f61",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-primary-fixed-variant": "#0e3da7",
+                      "surface-variant": "#d3e4fe",
+                      "outline-variant": "#c4c5d5",
+                      "primary-container": "#1a44ad",
+                      "surface-container-low": "#eff4ff",
+                      "tertiary-container": "#00583b",
+                      "on-tertiary-container": "#42d59a",
+                      "surface-container": "#e5eeff",
+                      "on-surface": "#0b1c30",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "surface": "#f8f9ff",
+                      "primary": "#002d89",
+                      "surface-container-high": "#dce9ff",
+                      "primary-fixed-dim": "#b5c4ff",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "on-primary-fixed": "#00164e",
+                      "tertiary-fixed": "#6ffbbe",
+                      "on-tertiary-fixed-variant": "#005236",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#e0e3e5",
+                      "outline": "#747684",
+                      "on-primary-container": "#a9bbff",
+                      "background": "#f8f9ff",
+                      "tertiary-fixed-dim": "#4edea3",
+                      "primary-fixed": "#dce1ff",
+                      "on-secondary-container": "#626567",
+                      "on-secondary-fixed": "#191c1e",
+                      "on-background": "#0b1c30",
+                      "error": "#ba1a1a",
+                      "on-tertiary-fixed": "#002113",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#444653",
+                      "on-secondary-fixed-variant": "#444749",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#e0e3e5",
+                      "surface-dim": "#cbdbf5",
+                      "surface-bright": "#f8f9ff",
+                      "secondary-fixed-dim": "#c4c7c9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xl": "32px",
+                      "container-margin": "20px",
+                      "sm": "12px",
+                      "lg": "24px",
+                      "gutter": "16px",
+                      "md": "16px",
+                      "base": "4px",
+                      "xs": "8px"
+              },
+              "fontFamily": {
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "display": ["Inter"],
+                      "label-md": ["JetBrains Mono"],
+                      "headline-lg-mobile": ["Inter"],
+                      "headline-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "display": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c4c5d5;
+            border-radius: 10px;
+        }
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col md:flex-row overflow-hidden">
+<!-- TopAppBar (Mobile Only) -->
+<header class="md:hidden fixed top-0 left-0 w-full z-50 flex justify-between items-center px-container-margin h-16 bg-surface dark:bg-on-surface shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a young adult with a friendly smile, set against a soft-focus corporate office background. The lighting is warm and inviting, aligning with a premium educational platform's light mode aesthetic using soft blues and whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk8dYu5wlpGWYD0y6IjLZveSkSzqxo5okCz5OvKydgftbZHieNfQSpTy0UAjr_vV2ihVuPNaP-5Z09u7ePCaMgQd0Zst48CmXVYWawQz-n6tGoXJS7Sbojek8rqj3WegooVlUqB4I1pphKub6v6CFAFuE2xbModFF7nKn7uXDh4PpjpkshYP07Y7twhzqyMBZBiZHnOQ6U3up7CH12vp2zltYJmL6A6gComGKPXwjdQ93tl4ZwMqCHIN33bpKQhjaFAWNkeAOYMSo"/>
+</div>
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-inverse-primary">EnglishPath</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-md font-label-md text-primary">XP: 1250</span>
+</div>
+</header>
+<!-- SideNav (Desktop) -->
+<aside class="hidden md:flex flex-col w-64 h-screen bg-surface border-r border-outline-variant/30 sticky top-0 left-0 z-50 py-8 px-6">
+<div class="mb-12">
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary tracking-tight">EnglishPath</h1>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Home (Active) -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 text-primary font-bold bg-surface-container-high group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-md font-label-md">Home</span>
+</a>
+<!-- Courses -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 text-secondary hover:text-primary hover:bg-surface-container group" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-label-md font-label-md">Courses</span>
+</a>
+<!-- Progress -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 text-secondary hover:text-primary hover:bg-surface-container group" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-label-md font-label-md">Progress</span>
+</a>
+<!-- Profile -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 text-secondary hover:text-primary hover:bg-surface-container group" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-md font-label-md">Profile</span>
+</a>
+</nav>
+<div class="mt-auto p-4 bg-primary-container rounded-2xl text-on-primary-container flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm opacity-80 uppercase tracking-wider">Current Streak</span>
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="text-headline-md font-headline-md font-bold">12 Days</div>
+<div class="w-full bg-white/20 h-1.5 rounded-full mt-1">
+<div class="bg-on-primary-container h-full rounded-full w-4/5"></div>
+</div>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 h-screen overflow-y-auto custom-scrollbar pt-20 md:pt-8 pb-24 md:pb-8 px-6 md:px-12">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-on-surface">Your Learning Journey</h2>
+<p class="text-body-md font-body-md text-secondary">Continue your path from Pre-Intermediate to Professional.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small circular avatar showing a diverse student smiling in a library, wearing modern casual attire. The image is bright with high-key lighting and uses a soft, corporate blue and white color palette to maintain platform consistency." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2IsJPBt7lzLkdczGe4cthCewBa-RWPl_VGYl44NVn60PCTbaphQ7qxeEvGrCbu80EuqW0Nc7v9mtOdvpGRin_2udDpr1krSA7KvzG8-6zCecLlrM7nqgrxcNx-ujQ_-CuI5dnTJWJO8AY1SNOBefqVFP_lFJjoNcvNZZOaKVEYUIDSTAqPvWR4eKaTKjhtICCDBisNjCsIHI9-VMIHKGDd4T4fl0pC1iV1WKk1g1YHZOT-DRb_SL9UdNpxHnxC2tZs_P5a4NdP6Y"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small circular avatar of an elderly professor with glasses in a professional home-office setting. The lighting is crisp and clear, reflecting a sophisticated educational brand aesthetic with minimalist backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcRbUwLrWM1u1Xbl47fp5S4wrqu57pA7q2-dso2Hw8LY0cp4ciAUYCSihoZ7QuDxSteBgUqUGviIHwHd1OO_o3G9oCHYzEQUZw1GiWUwF8TtZogghLynAO4ugVgwkDOJ8fmgLNNIqttZfdD_MgUuZsCQxPdZDv1Xf8AyNnlcy5Tj9uuW5xkRKEKTQHzYaBQ6i6zo4LzZdigN5uhA3grBOokUK0BPahGOqzdcySqIkCTMA4DwnOr1tDb2IYDEO83fdZ5MjKxPXUUEM"/>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">3 friends active now</span>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Center Content (Cards & Continue) -->
+<div class="lg:col-span-8 space-y-8">
+<!-- Continue Learning Block -->
+<section class="relative overflow-hidden rounded-3xl bg-primary-container p-8 text-on-primary-container shadow-xl transition-transform duration-300 hover:scale-[1.01]">
+<!-- Decorative Animated Background -->
+
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex-1 space-y-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full text-label-sm font-label-sm inline-block">ACTIVE MODULE</span>
+<h3 class="text-headline-lg font-headline-lg leading-tight">B1: Practical Business Networking</h3>
+<p class="text-body-md font-body-md opacity-90 max-w-md">Learn the art of small talk and professional introductions in a corporate environment.</p>
+<div class="pt-4 flex flex-wrap gap-4">
+<button class="bg-white text-primary px-8 py-3 rounded-2xl font-bold transition-all hover:shadow-lg active:scale-95">Continue Learning</button>
+<button class="bg-transparent border border-white/30 text-white px-8 py-3 rounded-2xl font-bold hover:bg-white/10 transition-all">Review Past Lessons</button>
+</div>
+</div>
+<div class="w-48 h-48 md:w-56 md:h-56 bg-surface-container-highest/20 rounded-full flex items-center justify-center relative">
+<div class="absolute inset-4 rounded-full border-4 border-dashed border-white/20 animate-spin-slow"></div>
+<div class="text-center">
+<div class="text-display font-display leading-none">68%</div>
+<div class="text-label-sm font-label-sm opacity-80 mt-1 uppercase tracking-tighter">Progress</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Levels Grid -->
+<section>
+<div class="flex justify-between items-end mb-6">
+<h3 class="text-headline-md font-headline-md">CEFR Road Map</h3>
+<a class="text-label-md font-label-md text-primary hover:underline" href="#">View curriculum details</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- A1 Card (Mastered) -->
+<div class="bg-surface-container-low p-6 rounded-3xl border-2 border-tertiary-fixed-dim/20 shadow-sm transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-fixed text-tertiary-fixed-dim flex items-center justify-center font-display text-xl">A1</div>
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">Beginner</h4>
+<p class="text-label-sm font-label-sm text-secondary">Essential foundations</p>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-on-tertiary-container font-bold">MASTERED</span>
+<span class="text-label-sm font-label-sm text-secondary">100%</span>
+</div>
+<div class="w-full bg-secondary-container h-2 rounded-full">
+<div class="bg-tertiary-fixed-dim h-full rounded-full w-full"></div>
+</div>
+</div>
+</div>
+<!-- A2 Card (Mastered) -->
+<div class="bg-surface-container-low p-6 rounded-3xl border-2 border-tertiary-fixed-dim/20 shadow-sm transition-all hover:shadow-md">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-2xl bg-tertiary-fixed text-tertiary-fixed-dim flex items-center justify-center font-display text-xl">A2</div>
+<span class="material-symbols-outlined text-on-tertiary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">Elementary</h4>
+<p class="text-label-sm font-label-sm text-secondary">Everyday interactions</p>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-on-tertiary-container font-bold">MASTERED</span>
+<span class="text-label-sm font-label-sm text-secondary">100%</span>
+</div>
+<div class="w-full bg-secondary-container h-2 rounded-full">
+<div class="bg-tertiary-fixed-dim h-full rounded-full w-full"></div>
+</div>
+</div>
+</div>
+<!-- B1 Card (Current) -->
+<div class="bg-white p-6 rounded-3xl border-2 border-primary shadow-lg ring-4 ring-primary/5 transition-all">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center font-display text-xl">B1</div>
+<span class="flex items-center gap-1 text-primary font-bold text-[10px] bg-primary/10 px-2 py-0.5 rounded-full uppercase">Current</span>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">Intermediate</h4>
+<p class="text-label-sm font-label-sm text-secondary">Complex sentences</p>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-primary font-bold">IN PROGRESS</span>
+<span class="text-label-sm font-label-sm text-secondary">68%</span>
+</div>
+<div class="w-full bg-secondary-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full w-[68%] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+</div>
+<!-- B2 Card (Locked) -->
+<div class="bg-surface/50 p-6 rounded-3xl border border-outline-variant/50 shadow-sm transition-all grayscale opacity-70">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container text-secondary flex items-center justify-center font-display text-xl">B2</div>
+<span class="material-symbols-outlined text-secondary">lock</span>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">Upper Intermediate</h4>
+<p class="text-label-sm font-label-sm text-secondary">Spontaneous speech</p>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-secondary font-bold">LOCKED</span>
+<span class="text-label-sm font-label-sm text-secondary">0%</span>
+</div>
+<div class="w-full bg-secondary-container h-2 rounded-full">
+<div class="bg-secondary h-full rounded-full w-0"></div>
+</div>
+</div>
+</div>
+<!-- C1 Card (Locked) -->
+<div class="bg-surface/50 p-6 rounded-3xl border border-outline-variant/50 shadow-sm transition-all grayscale opacity-70">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container text-secondary flex items-center justify-center font-display text-xl">C1</div>
+<span class="material-symbols-outlined text-secondary">lock</span>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">Advanced</h4>
+<p class="text-label-sm font-label-sm text-secondary">Professional proficiency</p>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-secondary font-bold">LOCKED</span>
+<span class="text-label-sm font-label-sm text-secondary">0%</span>
+</div>
+<div class="w-full bg-secondary-container h-2 rounded-full">
+<div class="bg-secondary h-full rounded-full w-0"></div>
+</div>
+</div>
+</div>
+<!-- C2 Card (Locked) -->
+<div class="bg-surface/50 p-6 rounded-3xl border border-outline-variant/50 shadow-sm transition-all grayscale opacity-70">
+<div class="flex justify-between items-start mb-8">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container text-secondary flex items-center justify-center font-display text-xl">C2</div>
+<span class="material-symbols-outlined text-secondary">lock</span>
+</div>
+<div class="space-y-4">
+<div>
+<h4 class="text-label-md font-label-md text-on-surface">Proficiency</h4>
+<p class="text-label-sm font-label-sm text-secondary">Full native fluency</p>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-label-sm font-label-sm text-secondary font-bold">LOCKED</span>
+<span class="text-label-sm font-label-sm text-secondary">0%</span>
+</div>
+<div class="w-full bg-secondary-container h-2 rounded-full">
+<div class="bg-secondary h-full rounded-full w-0"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Side Panel (Milestones & Goals) -->
+<aside class="lg:col-span-4 space-y-8">
+<!-- Next Milestone Card -->
+<section class="bg-white p-6 rounded-3xl shadow-sm border border-outline-variant/30">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-xl">workspace_premium</span>
+<h3 class="text-label-md font-label-md font-bold uppercase tracking-wide">Next Milestone</h3>
+</div>
+<div class="text-center py-6 bg-surface-container-lowest rounded-2xl border border-dashed border-outline-variant/50 mb-6">
+<div class="relative inline-block">
+
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-3 py-1 rounded-full whitespace-nowrap font-bold">LEVEL B1 CERTIFICATE</div>
+</div>
+<h4 class="text-headline-md font-headline-md mt-6">7 Lessons Remaining</h4>
+<p class="text-label-sm font-label-sm text-secondary px-4">Complete the 'Intermediate Business' path to unlock your official CEFR certificate.</p>
+</div>
+<div class="space-y-4">
+<h5 class="text-label-sm font-label-sm font-bold text-on-surface">Upcoming Goals</h5>
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-surface transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div class="flex-1">
+<p class="text-label-md font-label-md leading-tight">Master Present Perfect</p>
+<p class="text-label-sm font-label-sm text-secondary">3 exercises left</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">arrow_forward_ios</span>
+</div>
+<div class="flex items-center gap-4 p-3 rounded-xl hover:bg-surface transition-colors cursor-pointer group">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">forum</span>
+</div>
+<div class="flex-1">
+<p class="text-label-md font-label-md leading-tight">1:1 Tutoring Session</p>
+<p class="text-label-sm font-label-sm text-secondary">Tomorrow, 14:00</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-sm">arrow_forward_ios</span>
+</div>
+</div>
+</section>
+<!-- Achievements/Badges -->
+<section class="bg-white p-6 rounded-3xl shadow-sm border border-outline-variant/30">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-label-md font-label-md font-bold uppercase tracking-wide">Earned Badges</h3>
+<button class="text-label-sm font-label-sm text-primary">View all</button>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square rounded-2xl bg-tertiary-fixed/30 flex items-center justify-center" title="Early Bird">
+<span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<div class="aspect-square rounded-2xl bg-primary-container/20 flex items-center justify-center" title="Vocabulary Master">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<div class="aspect-square rounded-2xl bg-secondary-container/50 flex items-center justify-center" title="7-Day Streak">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="aspect-square rounded-2xl border-2 border-dashed border-outline-variant flex items-center justify-center group cursor-pointer hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-outline group-hover:rotate-45 transition-transform">add</span>
+</div>
+</div>
+</section>
+<!-- Quick Practice Card -->
+<section class="p-6 rounded-3xl bg-surface-container-highest/30 border border-outline-variant/30 flex items-center justify-between">
+<div>
+<h4 class="text-label-md font-label-md font-bold">5-Min Sprint</h4>
+<p class="text-label-sm font-label-sm text-secondary">Ready for a quick review?</p>
+</div>
+<button class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center hover:shadow-lg transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</section>
+</aside></div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-surface/80 dark:bg-on-surface/80 backdrop-blur-md rounded-t-xl shadow-[0px_-4px_20px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-container font-bold relative after:content-[''] after:w-1 after:h-1 after:bg-primary after:rounded-full after:mt-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-label-sm font-label-sm">Courses</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim" href="#">
+<span class="material-symbols-outlined">trending_up</span>
+<span class="text-label-sm font-label-sm">Progress</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed-dim" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.grid > div').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if (!card.classList.contains('grayscale')) {
+                    card.classList.add('-translate-y-1');
+                }
+            });
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('-translate-y-1');
+            });
+        });
+
+        // Simulating loading progress on the main bar
+        window.addEventListener('DOMContentLoaded', () => {
+            const progressBar = document.querySelector('.bg-primary.h-full');
+            if(progressBar) {
+                progressBar.style.width = '0%';
+                setTimeout(() => {
+                    progressBar.style.width = '68%';
+                }, 500);
+            }
+        });
+    </script>
+</body></html>
